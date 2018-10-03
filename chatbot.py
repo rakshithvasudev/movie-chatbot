@@ -60,10 +60,20 @@ conversations_ids = []
 
 # for every conversation in conversations[:-1] (the last element is just '').
 # get the list of lines_in the conversation, remove the square braces,
-# single quotes & commas.
+# single quotes, commas & whitespace.
 for conversation in conversations[:-1]:
-    _conversation = conversation.split(delimiter)[-1][1:-1].replace("'", "").replace("'", "")
+    _conversation = conversation.split(delimiter)[-1][1:-1]. \
+        replace("'", "").replace("'", "").replace(" ", "")
     conversations_ids.append(_conversation.split(","))
 
+# generate question and answers - the original dataset is structured
+# so that for every first id, the corresponding answer is present in the next id.
+# ex: [Q: L194, A: L195, Q: L196, A: L197], therefore question answer list can be
+# built as follows.
+questions = []
+answers = []
 
-# question and answers
+for conversation in conversations_ids:
+    for idx in range(len(conversation)-1):
+            questions.append(id2line[conversation[idx]])
+            answers.append(id2line[conversation[idx+1]])
