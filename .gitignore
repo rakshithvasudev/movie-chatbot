@@ -1,2 +1,3 @@
-# ignoring the dataset folder
+# ignoring the dataset & .idea folder
 dataset/
+.idea
