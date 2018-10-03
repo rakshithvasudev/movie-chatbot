@@ -41,18 +41,26 @@ lines = read_lines("dataset/movie_lines.txt")
 # 			has to be matched with movie_lines.txt to reconstruct the actual content
 conversations = read_lines("dataset/movie_conversations.txt")
 
-
 # create a dictionary to keep a track of line_id and the actual line itself.
 # split the text using the delimiter - '+++$+++', map the line id to the actual line.
 # ex: 'L1045 +++$+++ u0 +++$+++ m0 +++$+++ BIANCA +++$+++ They do not!'
 # here line_id is 'L1045', line is 'They do not!'
+delimiter = " +++$+++ "
 id2line = {}
 
 # for every line split the line on the delimiter, then load the delimited
-# tokens into the dictionary
+# tokens into the dictionary, where the id is the key, value is the actual line.
 for line in lines:
-    line_split = line.split(" +++$+++ ")
+    line_split = line.split(delimiter)
     if len(line_split) == 5:
         id2line[line_split[0]] = line_split[4]
 
+# this list contains all the conversation line ids involved in a conversation
+# using the conversations list.
+conversations_ids = []
 
+# for every conversation in conversations[:-1] (the last element is just '').
+#
+for conversation in conversations[:-1]:
+    _conversation = conversation.split(delimiter)[-1][1:-1].replace("'", "").replace("'", "")
+    conversations_ids.append(_conversation.split(","))
