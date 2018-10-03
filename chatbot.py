@@ -20,7 +20,6 @@ def read_lines(source):
 
 # get the dataset - source file:
 # https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html
-
 # lines contains the the actual text of each utterance-
 # 	- fields:
 # 		- lineID
@@ -60,7 +59,11 @@ for line in lines:
 conversations_ids = []
 
 # for every conversation in conversations[:-1] (the last element is just '').
-#
+# get the list of lines_in the conversation, remove the square braces,
+# single quotes & commas.
 for conversation in conversations[:-1]:
     _conversation = conversation.split(delimiter)[-1][1:-1].replace("'", "").replace("'", "")
     conversations_ids.append(_conversation.split(","))
+
+
+# question and answers
