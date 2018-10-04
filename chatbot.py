@@ -68,12 +68,60 @@ for conversation in conversations[:-1]:
 
 # generate question and answers - the original dataset is structured
 # so that for every first id, the corresponding answer is present in the next id.
-# ex: [Q: L194, A: L195, Q: L196, A: L197], therefore question answer list can be
+# ex: [Q: L194, A: L195, Q: L196, A: L197], therefore question & answer list can be
 # built as follows.
 questions = []
 answers = []
 
 for conversation in conversations_ids:
-    for idx in range(len(conversation)-1):
-            questions.append(id2line[conversation[idx]])
-            answers.append(id2line[conversation[idx+1]])
+    for idx in range(len(conversation) - 1):
+        questions.append(id2line[conversation[idx]])
+        answers.append(id2line[conversation[idx + 1]])
+
+
+def clean_text(text):
+    """
+    Remove the 
+    :param text:
+    :return:
+    """
+    # convert text to lowercase
+    text = text.lower()
+
+    # replace every occurrence of "i'm" with "i am"
+    text = re.sub("i'm", "i am", text)
+
+    # replace every occurrence of "he's" with "he is"
+    text = re.sub("he's", "he is", text)
+
+    # replace every occurrence of "she's" with "she is"
+    text = re.sub("she's", "she is", text)
+
+    # replace every occurrence of "whats's" with "what is"
+    text = re.sub("what's", "what is", text)
+
+    # replace every occurrence of "where's" with "where is"
+    text = re.sub("where's", "where is", text)
+
+    # replace every occurrence of "'ll" with "will"
+    text = re.sub("\'ll", " will", text)
+
+    # replace every occurrence of "'ve" with "have"
+    text = re.sub("\'ve", " have", text)
+
+    # replace every occurrence of "'ve" with "have"
+    text = re.sub("\'re", " are", text)
+
+    # replace every occurrence of "'d" with "would"
+    text = re.sub("\'d", " would", text)
+
+    # replace every occurrence of "won't" with "will not"
+    text = re.sub("won't", "will not", text)
+
+    # replace every occurrence of "can't" with "cannot"
+    text = re.sub("can't", "cannot", text)
+
+    # replace special characters with "" - remove them
+    text = re.sub("[-()\"#/@;:<>{}+=|.?,^%]", "", text)
+
+    return text
