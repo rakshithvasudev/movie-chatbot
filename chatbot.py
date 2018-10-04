@@ -3,6 +3,7 @@ import numpy as np
 import tensorflow as tf
 import pandas as pd
 import re
+from collections import Counter
 import time
 
 
@@ -165,5 +166,13 @@ def count_words(string_list):
             # populate word_counts accordingly
             if word not in word_counts:
                 word_counts[word] = 1
-            word_counts += 1
+            word_counts[word] += 1
+    return word_counts
 
+
+# get the word counts for questions and answers
+word2count_question = count_words(clean_questions)
+word2count_answers = count_words(clean_answers)
+
+# capture the total count of word frequency in word2count as a dictionary
+word2count = dict(Counter(word2count_question)+Counter(word2count_answers))
