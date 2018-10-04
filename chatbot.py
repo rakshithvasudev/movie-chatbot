@@ -81,9 +81,10 @@ for conversation in conversations_ids:
 
 def clean_text(text):
     """
-    Remove the 
-    :param text:
-    :return:
+    Removes special characters, gets the correct version
+    of the text.
+    :param text: string text source to be cleaned.
+    :return: cleaned string text.
     """
     # convert text to lowercase
     text = text.lower()
@@ -109,6 +110,9 @@ def clean_text(text):
     # replace every occurrence of "'ve" with "have"
     text = re.sub("\'ve", " have", text)
 
+    # replace every occurrence of "'s" with " is"
+    text = re.sub("\'s", " is", text)
+
     # replace every occurrence of "'ve" with "have"
     text = re.sub("\'re", " are", text)
 
@@ -125,3 +129,41 @@ def clean_text(text):
     text = re.sub("[-()\"#/@;:<>{}+=|.?,^%]", "", text)
 
     return text
+
+
+def clean_string_list(string_list):
+    """
+    cleans every element of the string_list text & returns a clean list.
+    :param string_list: source list that needs to be cleaned.
+    :return: cleaned elements of the list.
+    """
+    cleaned_string = []
+    for string_element in string_list:
+        cleaned_string.append(clean_text(string_element))
+
+    return cleaned_string
+
+
+# clean the questions and answer elements
+clean_questions = clean_string_list(questions)
+clean_answers = clean_string_list(answers)
+
+
+def count_words(string_list):
+    """
+    Counts the number of words in a given list of sentences.
+    :param string_list: list of sentences.
+    :return: word counts in the entire list of corpus.
+    """
+    # keep a track of word counts
+    word_counts = {}
+
+    # iterate through every sentence in string_list
+    for sentence in string_list:
+        # capture every word - using " " as delimiter
+        for word in sentence.split():
+            # populate word_counts accordingly
+            if word not in word_counts:
+                word_counts[word] = 1
+            word_counts += 1
+
