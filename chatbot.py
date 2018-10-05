@@ -261,3 +261,19 @@ for answer in clean_answers:
 # sorting questions and answers by length: this is necessary
 # because it improves(speeds up) the training process, converges faster
 # in that it'll reduce the padding during the training.
+sorted_clean_questions = []
+sorted_clean_answers = []
+
+# it is important to include questions that are not too long
+# it is better to 1 up to include 20 or 25(arbitrary) words. This is to make the
+# training efficient.
+
+# +1 for ensuring the count goes upto 25.
+for length in range(1, 25 + 1):
+    # get the index and actual question words
+    for i in enumerate(questions_into_int):
+        # if the length of the question is the actual length in range
+        if len(i[1]) == length:
+            # append the actual question that was considered & the corresponding answer
+            sorted_clean_questions.append(questions_into_int[i[0]])
+            sorted_clean_questions.append(answers_into_int[i[0]])
