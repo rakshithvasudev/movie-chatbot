@@ -27,13 +27,13 @@
           <entry key="chatbot" value="376" />
           <entry key="dummy" value="1" />
           <entry key="gitignore" value="14" />
-          <entry key="py" value="5072" />
+          <entry key="py" value="6040" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="15" />
-          <entry key="Python" value="5889" />
+          <entry key="Python" value="6857" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -55,12 +55,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chatbot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="213" column="20" selection-start-line="213" selection-start-column="20" selection-end-line="213" selection-end-column="20" />
+            <state relative-caret-position="188">
+              <caret line="259" column="32" lean-forward="true" selection-start-line="259" selection-start-column="32" selection-end-line="259" selection-end-column="32" />
               <folding>
                 <element signature="e#33#51#0" expanded="true" />
-                <marker date="1538706100624" expanded="true" signature="5142:5147" ph="..." />
-                <marker date="1538706100624" expanded="true" signature="6113:6664" ph="..." />
+                <marker date="1538710594552" expanded="true" signature="5142:5147" ph="..." />
+                <marker date="1538710594552" expanded="true" signature="6192:6743" ph="..." />
               </folding>
             </state>
           </provider>
@@ -247,9 +247,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32793018" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.40773067" />
+      <window_info anchor="bottom" id="Python Console" order="10" visible="true" weight="0.40773067" />
       <window_info anchor="right" x="0" y="0" width="380" height="733" id="Documentation" side_tool="true" weight="0.22235577" />
-      <window_info anchor="right" id="SciView" visible="true" weight="0.18099819" />
+      <window_info active="true" anchor="right" id="SciView" visible="true" weight="0.18099819" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -287,12 +287,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chatbot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="213" column="20" selection-start-line="213" selection-start-column="20" selection-end-line="213" selection-end-column="20" />
+        <state relative-caret-position="188">
+          <caret line="259" column="32" lean-forward="true" selection-start-line="259" selection-start-column="32" selection-end-line="259" selection-end-column="32" />
           <folding>
             <element signature="e#33#51#0" expanded="true" />
-            <marker date="1538706100624" expanded="true" signature="5142:5147" ph="..." />
-            <marker date="1538706100624" expanded="true" signature="6113:6664" ph="..." />
+            <marker date="1538710594552" expanded="true" signature="5142:5147" ph="..." />
+            <marker date="1538710594552" expanded="true" signature="6192:6743" ph="..." />
           </folding>
         </state>
       </provider>

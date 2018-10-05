@@ -178,6 +178,8 @@ word2count_answers = count_words(clean_answers)
 # capture the total count of word frequency in word2count as a dictionary
 word2count = dict(Counter(word2count_question) + Counter(word2count_answers))
 
+# the least value of word_counts below which the word itself gets
+# discarded.
 threshold = 20
 
 
@@ -210,8 +212,51 @@ answerswords2int = words2int(word2count, 20)
 tokens = ['<PAD>', '<EOS>', '<OUT>', '<SOS>']
 
 # this is needed to deal with seq2seq model.
+
+# add the tokens for questions
 for token in tokens:
     questionwords2int[token] = len(questionwords2int) + 1
 
+# add the tokens for answers
 for token in tokens:
     answerswords2int[token] = len(questionwords2int) + 1
+
+# create inverse dictionary of answerwords2int dictionary
+answersint2word = {w_i: w for w, w_i in answerswords2int.items()}
+
+# add the EOS token- this is needed at the end of the decoding layers for
+# seq2seq model.
+for i in range(len(clean_answers)):
+    clean_answers[i] += " <EOS>"
+
+# turning questions and answers to integers
+# & replacing filtered out words by int <OUT> token
+
+# all the questions converted to int
+questions_into_int = []
+for question in clean_questions:
+    # integers for the corresponding question
+    question_int = []
+    # iterate through every word in the question
+    for word in question.split():
+        if word not in questionwords2int:
+            question_int.append(questionwords2int["<OUT>"])
+        else:
+            question_int.append(questionwords2int[word])
+    questions_into_int.append(question_int)
+
+
+# all the answers converted to int
+answers_into_int = []
+for answer in clean_answers:
+    # integers for the corresponding answer
+    answer_int = []
+    # iterate through every word in the answer
+    for word in answer.split():
+        if word not in answerswords2int:
+            answer_int.append(answerswords2int["<OUT>"])
+        else:
+            answer_int.append(answerswords2int[word])
+        answers_into_int.append(answer_int)
+
+
