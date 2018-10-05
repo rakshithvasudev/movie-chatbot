@@ -175,4 +175,25 @@ word2count_question = count_words(clean_questions)
 word2count_answers = count_words(clean_answers)
 
 # capture the total count of word frequency in word2count as a dictionary
-word2count = dict(Counter(word2count_question)+Counter(word2count_answers))
+word2count = dict(Counter(word2count_question) + Counter(word2count_answers))
+
+threshold = 20
+questionwords2int = {}
+
+
+def words2int(dictionary, threshold):
+    """
+    Takes the words from the dictionary filters them based on
+    the dictionary word count, if their count exceeds the threshold.
+    The value counts are their corresponding words.
+    :param dictionary: it contains the words and their corresponding count.
+    :param threshold: filter parameter.
+    :return: retained words and their unique counts.
+    """
+    selected_words = {}
+    counter = 0
+    for word, count in dictionary.items():
+        if count >= threshold:
+            selected_words[word] = counter
+            counter += 1
+    return selected_words
