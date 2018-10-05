@@ -166,7 +166,8 @@ def count_words(string_list):
             # populate word_counts accordingly
             if word not in word_counts:
                 word_counts[word] = 1
-            word_counts[word] += 1
+            else:
+                word_counts[word] += 1
     return word_counts
 
 
@@ -178,7 +179,6 @@ word2count_answers = count_words(clean_answers)
 word2count = dict(Counter(word2count_question) + Counter(word2count_answers))
 
 threshold = 20
-questionwords2int = {}
 
 
 def words2int(dictionary, threshold):
@@ -197,3 +197,21 @@ def words2int(dictionary, threshold):
             selected_words[word] = counter
             counter += 1
     return selected_words
+
+
+questionwords2int = words2int(word2count, 20)
+answerswords2int = words2int(word2count, 20)
+
+# add last tokens to dictionaries - order important
+# <PAD> - padding the content
+# <EOS> - End of string
+# <OUT> - Filtered out
+# <SOS> - Start of string
+tokens = ['<PAD>', '<EOS>', '<OUT>', '<SOS>']
+
+# this is needed to deal with seq2seq model.
+for token in tokens:
+    questionwords2int[token] = len(questionwords2int) + 1
+
+for token in tokens:
+    answerswords2int[token] = len(questionwords2int) + 1
