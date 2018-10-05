@@ -245,7 +245,6 @@ for question in clean_questions:
             question_int.append(questionwords2int[word])
     questions_into_int.append(question_int)
 
-
 # all the answers converted to int
 answers_into_int = []
 for answer in clean_answers:
@@ -259,4 +258,6 @@ for answer in clean_answers:
             answer_int.append(answerswords2int[word])
         answers_into_int.append(answer_int)
 
-
+# sorting questions and answers by length: this is necessary
+# because it improves(speeds up) the training process, converges faster
+# in that it'll reduce the padding during the training.
