@@ -264,11 +264,11 @@ for answer in clean_answers:
 sorted_clean_questions = []
 sorted_clean_answers = []
 
-# it is important to include questions that are not too long
-# it is better to 1 up to include 20 or 25(arbitrary) words. This is to make the
-# training efficient.
+# It is important to include questions that are not too long.
+# It is better to start from 1 include up to 20 or 25(arbitrary) words.
+# This is to makes the training efficient.
 
-# +1 for ensuring the count goes upto 25.
+# +1 for ensuring the count goes upto 25 - range upperbound .
 for length in range(1, 25 + 1):
     # get the index and actual question words
     for i in enumerate(questions_into_int):
@@ -276,4 +276,4 @@ for length in range(1, 25 + 1):
         if len(i[1]) == length:
             # append the actual question that was considered & the corresponding answer
             sorted_clean_questions.append(questions_into_int[i[0]])
-            sorted_clean_questions.append(answers_into_int[i[0]])
+            sorted_clean_answers.append(answers_into_int[i[0]])

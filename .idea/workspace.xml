@@ -27,13 +27,13 @@
           <entry key="chatbot" value="453" />
           <entry key="dummy" value="1" />
           <entry key="gitignore" value="14" />
-          <entry key="py" value="6932" />
+          <entry key="py" value="6939" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="15" />
-          <entry key="Python" value="7930" />
+          <entry key="Python" value="7937" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -55,12 +55,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chatbot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="279" lean-forward="true" selection-start-line="279" selection-end-line="279" />
+            <state relative-caret-position="238">
+              <caret line="278" column="32" selection-start-line="278" selection-start-column="32" selection-end-line="278" selection-end-column="32" />
               <folding>
                 <element signature="e#33#51#0" expanded="true" />
-                <marker date="1538781448797" expanded="true" signature="5142:5147" ph="..." />
-                <marker date="1538781448797" expanded="true" signature="6192:6743" ph="..." />
+                <marker date="1538781695277" expanded="true" signature="5142:5147" ph="..." />
+                <marker date="1538781695277" expanded="true" signature="6192:6743" ph="..." />
               </folding>
             </state>
           </provider>
@@ -230,8 +230,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1719" height="932" extended-state="6" />
-    <editor active="true" />
+    <frame x="-6" y="-6" width="1719" height="932" extended-state="7" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25315696" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -288,12 +287,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chatbot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="279" lean-forward="true" selection-start-line="279" selection-end-line="279" />
+        <state relative-caret-position="238">
+          <caret line="278" column="32" selection-start-line="278" selection-start-column="32" selection-end-line="278" selection-end-column="32" />
           <folding>
             <element signature="e#33#51#0" expanded="true" />
-            <marker date="1538781448797" expanded="true" signature="5142:5147" ph="..." />
-            <marker date="1538781448797" expanded="true" signature="6192:6743" ph="..." />
+            <marker date="1538781695277" expanded="true" signature="5142:5147" ph="..." />
+            <marker date="1538781695277" expanded="true" signature="6192:6743" ph="..." />
           </folding>
         </state>
       </provider>
