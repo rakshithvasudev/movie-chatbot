@@ -280,5 +280,16 @@ for length in range(1, 25 + 1):
             sorted_clean_questions.append(questions_into_int[i[0]])
             sorted_clean_answers.append(answers_into_int[i[0]])
 
+
 # -------------------------Seq2Seq model building-----------------------------
 
+def model_inputs():
+    """
+    Initializes the input for the nn model.
+    :return: inputs, targets, learning rate, keep probability (Regularization)
+    """
+    inputs = tf.placeholder(dtype=tf.int32, shape=[None, None], name='input')
+    targets = tf.placeholder(dtype=tf.int32, shape=[None, None], name='target')
+    lr = tf.placeholder(dtype=tf.float32, name='learning_rate')
+    keep_prob = tf.placeholder(dtype=tf.float32, name='keep_prob')
+    return inputs, targets, lr, keep_prob
