@@ -7,6 +7,7 @@ from collections import Counter
 import time
 
 
+# --------------------- DATA PREPROCESSING ----------------------------------
 def read_lines(source):
     """
     Read the file from the source location, split into lines, return
@@ -267,8 +268,9 @@ sorted_clean_answers = []
 # It is important to include questions that are not too long.
 # It is better to start from 1 include up to 20 or 25(arbitrary) words.
 # This is to makes the training efficient.
-
-# +1 for ensuring the count goes upto 25 - range upperbound .
+# +1 for ensuring the count goes upto 25 - range upperbound.
+# this could be run in O(nlog(n)) as opposed to o(n), if sort function
+# is used.
 for length in range(1, 25 + 1):
     # get the index and actual question words
     for i in enumerate(questions_into_int):
@@ -277,3 +279,6 @@ for length in range(1, 25 + 1):
             # append the actual question that was considered & the corresponding answer
             sorted_clean_questions.append(questions_into_int[i[0]])
             sorted_clean_answers.append(answers_into_int[i[0]])
+
+# -------------------------Seq2Seq model building-----------------------------
+
