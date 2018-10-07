@@ -23,17 +23,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="545" />
-          <entry key="chatbot" value="453" />
+          <entry key="Python Console" value="604" />
+          <entry key="chatbot" value="474" />
           <entry key="dummy" value="1" />
           <entry key="gitignore" value="14" />
-          <entry key="py" value="8738" />
+          <entry key="py" value="9989" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="15" />
-          <entry key="Python" value="9736" />
+          <entry key="Python" value="11067" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -55,14 +55,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chatbot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="692">
-              <caret line="318" column="4" selection-start-line="318" selection-start-column="4" selection-end-line="318" selection-end-column="4" />
+            <state relative-caret-position="592">
+              <caret line="347" column="64" selection-start-line="347" selection-start-column="64" selection-end-line="347" selection-end-column="64" />
               <folding>
                 <element signature="e#33#51#0" expanded="true" />
-                <marker date="1538880220755" expanded="true" signature="5220:5225" ph="..." />
-                <marker date="1538880220755" expanded="true" signature="6270:6821" ph="..." />
-                <marker date="1538880220755" expanded="true" signature="9945:10168" ph="..." />
-                <marker date="1538880220755" expanded="true" signature="10927:10932" ph="..." />
+                <marker date="1538883366152" expanded="true" signature="5220:5225" ph="..." />
+                <marker date="1538883366152" expanded="true" signature="6270:6821" ph="..." />
+                <marker date="1538883366152" expanded="true" signature="9945:10168" ph="..." />
+                <marker date="1538883366152" expanded="true" signature="10927:10932" ph="..." />
+                <marker date="1538883366152" expanded="true" signature="11726:12140" ph="..." />
               </folding>
             </state>
           </provider>
@@ -95,7 +96,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1383" />
+    <option name="x" value="1455" />
+    <option name="y" value="92" />
     <option name="width" value="3861" />
     <option name="height" value="2070" />
   </component>
@@ -222,7 +224,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="615" y="0" width="1716" height="920" extended-state="0" />
+    <frame x="647" y="41" width="1716" height="920" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.25315696" />
@@ -240,7 +242,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32793018" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.40773067" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.40759495" />
       <window_info anchor="right" x="0" y="0" width="380" height="733" id="Documentation" side_tool="true" weight="0.22235577" />
       <window_info anchor="right" id="SciView" visible="true" weight="0.1813253" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -280,14 +282,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chatbot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="692">
-          <caret line="318" column="4" selection-start-line="318" selection-start-column="4" selection-end-line="318" selection-end-column="4" />
+        <state relative-caret-position="592">
+          <caret line="347" column="64" selection-start-line="347" selection-start-column="64" selection-end-line="347" selection-end-column="64" />
           <folding>
             <element signature="e#33#51#0" expanded="true" />
-            <marker date="1538880220755" expanded="true" signature="5220:5225" ph="..." />
-            <marker date="1538880220755" expanded="true" signature="6270:6821" ph="..." />
-            <marker date="1538880220755" expanded="true" signature="9945:10168" ph="..." />
-            <marker date="1538880220755" expanded="true" signature="10927:10932" ph="..." />
+            <marker date="1538883366152" expanded="true" signature="5220:5225" ph="..." />
+            <marker date="1538883366152" expanded="true" signature="6270:6821" ph="..." />
+            <marker date="1538883366152" expanded="true" signature="9945:10168" ph="..." />
+            <marker date="1538883366152" expanded="true" signature="10927:10932" ph="..." />
+            <marker date="1538883366152" expanded="true" signature="11726:12140" ph="..." />
           </folding>
         </state>
       </provider>

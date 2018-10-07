@@ -320,3 +320,32 @@ def preprocess_targets(targets, word2int, batch_size):
     preprocessed_targets = tf.concat([left_side, right_side], 1)
 
     return preprocessed_targets
+
+
+# -------------------------- Create the Encoder RNN Layer ------------------------------
+def encoder_rnn_layer(rnn_inputs, rnn_size, num_layers, keep_prob, seq_length):
+    """
+    RNN unit that handles the encoding phase.
+    :param rnn_inputs: model input for the rnn input such as in the model_inputs() not question inputs.
+    :param rnn_size: number of input tensors of the encoder rnn.
+    :param num_layers: number of layers in the encoding rnn.
+    :param keep_prob: dropout regularization rate.
+    :param seq_length: list of the length of each batch.
+    :return:
+    """
+
+    # build an lstm
+    lstm = tf.contrib.rnn.BasicLSTMCell(rnn_size)
+    # add dropout
+    lstm_dropout = tf.contrib.rnn.DropoutWrapper(lstm, keep_prob)
+    # this contains several lstm cells with dropout
+    encoder_cell = tf.contrib.rnn.MultiRNNCell([lstm_dropout] * num_layers)
+
+    # this builds dbrnn builds independent forward and backward
+    # it is important here in dbrnn to maintain the input size of fw & bw cell must match.
+    _, encoder_state = tf.nn.bidirectional_dynamic_rnn(cell_fw=encoder_cell,
+                                                       cell_bw=encoder_cell,
+                                                       inputs=rnn_inputs,
+                                                       sequence_length=seq_length,
+                                                       dtype=tf.float32)
+    return encoder_state
