@@ -285,7 +285,7 @@ for length in range(1, 25 + 1):
 
 def model_inputs():
     """
-    Initializes the input for the nn model.
+    Initializes the input for the tf nn model.
     :return: inputs, targets, learning rate, keep probability (Regularization)
     """
     inputs = tf.placeholder(dtype=tf.int32, shape=[None, None], name='input')
@@ -293,3 +293,30 @@ def model_inputs():
     lr = tf.placeholder(dtype=tf.float32, name='learning_rate')
     keep_prob = tf.placeholder(dtype=tf.float32, name='keep_prob')
     return inputs, targets, lr, keep_prob
+
+
+# preprocess the targets so that there is a certain input formatting.
+def preprocess_targets(targets, word2int, batch_size):
+    """
+    This takes the input and adds the <SOS> token while ignoring the last column
+    which contains the <EOS> token, because the output from this function is fed into
+    a decoder.
+    :param targets: the target outputs from sorted clean answer[sorted_lean_answer].
+    :param word2int: the dictionary that maps every word to an unique integer.
+    :param batch_size: the number of rows to be picked - the literal batch size.
+    :return:
+    """
+    # create a tensor such that , this can be added to the targets.
+    left_side = tf.fill([batch_size, 1], word2int['<SOS>'])
+
+    # extract everything except the last column which is <EOS>.
+    # Here we are not adding the left_side with the last column
+    # to maintain the same shape as before. One way to do that
+    # is to add the left_side by removing the extreme right column
+    # because <EOS> isn't useful for the decoder anyway.
+    right_side = tf.strided_slice(targets, [0, 0], [batch_size, -1], [1, 1])
+
+    # this is the added - concatenated version of left_side and right_side.
+    preprocessed_targets = tf.concat([left_side, right_side], 1)
+
+    return preprocessed_targets
