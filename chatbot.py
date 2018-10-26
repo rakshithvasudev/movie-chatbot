@@ -214,11 +214,11 @@ tokens = ['<PAD>', '<EOS>', '<OUT>', '<SOS>']
 
 # this is needed to deal with seq2seq model.
 
-# add the tokens for questions
+# add the tokens for questions in the end
 for token in tokens:
     questionwords2int[token] = len(questionwords2int) + 1
 
-# add the tokens for answers
+# add the tokens for answers in the end
 for token in tokens:
     answerswords2int[token] = len(questionwords2int) + 1
 
@@ -232,9 +232,9 @@ for i in range(len(clean_answers)):
 
 # turning questions and answers to integers
 # & replacing filtered out words by int <OUT> token
-
 # all the questions converted to int
 questions_into_int = []
+
 for question in clean_questions:
     # integers for the corresponding question
     question_int = []
@@ -269,14 +269,14 @@ sorted_clean_answers = []
 # It is better to start from 1 include up to 20 or 25(arbitrary) words.
 # This is to makes the training efficient.
 # +1 for ensuring the count goes upto 25 - range upperbound.
-# this could be run in O(nlog(n)) as opposed to o(n), if sort function
+# this could be run in O(nlog(n)) as opposed to o(n^2), if sorted() function
 # is used.
 for length in range(1, 25 + 1):
     # get the index and actual question words
     for i in enumerate(questions_into_int):
         # if the length of the question is the actual length in range
         if len(i[1]) == length:
-            # append the actual question that was considered & the corresponding answer
+            # append the actual question that was considered & the corresponding answer.
             sorted_clean_questions.append(questions_into_int[i[0]])
             sorted_clean_answers.append(answers_into_int[i[0]])
 
@@ -331,7 +331,7 @@ def encoder_rnn_layer(rnn_inputs, rnn_size, num_layers, keep_prob, seq_length):
     :param num_layers: number of layers in the encoding rnn.
     :param keep_prob: dropout regularization rate.
     :param seq_length: list of the length of each batch.
-    :return:
+    :return: encoder state from the bidirectional dynamic rnn.
     """
 
     # build an lstm
@@ -349,3 +349,27 @@ def encoder_rnn_layer(rnn_inputs, rnn_size, num_layers, keep_prob, seq_length):
                                                        sequence_length=seq_length,
                                                        dtype=tf.float32)
     return encoder_state
+
+
+def decode_training_set(encoder_state, decoder_cell, decoder_embedded_input, seq_length, decoding_scope, output_func,
+                        keep_prob,
+                        batch_size):
+    """
+    This decodes the training set.
+    :param encoder_state: the state from the encode_rnn_layer function.
+    :param decoder_cell: the cell at which the decoding happens.
+    :param decoder_embedded_input: input on which word embedding is applied.
+    :param seq_length: length of the decoding sequence
+    :param decoding_scope: An object of the variable scope, which is an advanced ds that
+                           serves as wrapper for tf variables.
+    :param output_func: that is used to return decoder function in the end.
+    :param keep_prob: regularization
+    :param batch_size: size of the batch elements
+    :return:
+    """
+
+    # shape->(number of lines,number of cols, number of elements)
+    #attention_states = tf.zeros([batch_size, 1, decoder_cell.output_size])
+
+    # attention_keys, attention_values,attention_score_function, attention_construct_function = \
+    #     tf.contrib.seq2seq.prepare_attention()
